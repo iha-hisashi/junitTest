@@ -18,7 +18,7 @@ public class UserInfoService extends MiraiPrjApplication{
 	public Map<String, String> createUserInfo(Date birthDay) throws Exception {
 		Map userInfo = new HashMap<>();
 		// プレイ可能判断
-		if(judgeUtils.isRegisterdAge(birthDay)) {
+		if(judgeUtils.isRegisteredAge(birthDay)) {
 				userInfo.put("playF", "1");
 				
 				// 課金可能判断
