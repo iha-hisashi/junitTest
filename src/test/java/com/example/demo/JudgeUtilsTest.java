@@ -146,7 +146,7 @@ class JudgeUtilsTest {
 		Date birthDay = birthcal.getTime();
 
 		// 実行
-		boolean actual = target.isRegisterdAge(birthDay);
+		boolean actual = target.isRegisteredAge(birthDay);
 
 		//結果
 		assertTrue(actual);
@@ -159,7 +159,7 @@ class JudgeUtilsTest {
 	// 現在時刻：2018/04/02
 	// 合格条件：true
 	@Test
-	public void testIsRegisterdAge_18歳_0402生まれ_プレイ可能() {
+	public void testIsRegisteredAge_18歳_0402生まれ_プレイ可能() {
 
 		// 事前処理(Mock)
 		Calendar cal = Calendar.getInstance();
@@ -179,7 +179,7 @@ class JudgeUtilsTest {
 		Date birthDay = birthcal.getTime();
 
 		// 実行
-		boolean actual = target.isRegisterdAge(birthDay);
+		boolean actual = target.isRegisteredAge(birthDay);
 
 		//結果
 		assertTrue(actual);
@@ -192,7 +192,30 @@ class JudgeUtilsTest {
 	// 現在時刻：2017/04/01
 	// 合格条件：false
 	@Test
-	public void testIsRegisterdAge_17歳_プレイ不可() {
+	public void testIsRegisteredAge_17歳_プレイ不可() {
+		// 事前処理(Mock)
+		Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(Calendar.YEAR, 2017);
+		cal.set(Calendar.MONTH, Calendar.APRIL);
+		cal.set(Calendar.DAY_OF_MONTH, 01);
+		Date date = cal.getTime();
+		MockCurrentTime mockTime = new MockCurrentTime(date);
+
+		// 引数
+		Calendar birthcal = Calendar.getInstance();
+		birthcal.clear();
+		birthcal.set(Calendar.YEAR, 2000);
+		birthcal.set(Calendar.MONTH, Calendar.APRIL);
+		birthcal.set(Calendar.DAY_OF_MONTH, 01);
+		Date birthDay = birthcal.getTime();
+
+		// 実行
+		boolean actual = target.isRegisteredAge(birthDay);
+
+		//結果
+		assertFalse(actual);
+		mockTime.tearDown();
 
 	}
 }
