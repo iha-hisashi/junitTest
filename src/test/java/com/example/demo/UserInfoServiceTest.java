@@ -22,7 +22,7 @@ class UserInfoServiceTest {
 	// ケースNo1
 	// ケース内容：プレイ対象でかつ課金対象
 	// 引数：日時=現在日時
-	// Mock：isRegisterdAge(),isBillingAge()をtrueで返却
+	// Mock：isRegisteredAge(),isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=1}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象_課金対象() throws Exception {
@@ -32,7 +32,7 @@ class UserInfoServiceTest {
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
 			@Mock
-			public boolean isRegisterdAge(Date birthDay) {
+			public boolean isRegisteredAge(Date birthDay) {
 				return true;
 			}
 			@Mock
@@ -54,7 +54,7 @@ class UserInfoServiceTest {
 	// ケースNo2 
 	// ケース内容：プレイ対象でかつ課金対象でない
 	// 引数：日時=現在日時
-	// Mock：isRegisterdAge()をtrue,isBillingAge()をfalseで返却
+	// Mock：isRegisteredAge()をtrue,isBillingAge()をfalseで返却
 	// 合格条件：ユーザー情報Mapに{playF=1,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象_課金対象でない() throws Exception {
@@ -64,7 +64,7 @@ class UserInfoServiceTest {
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
 			@Mock
-			public boolean isRegisterdAge(Date birthDay) {
+			public boolean isRegisteredAge(Date birthDay) {
 				return true;
 			}
 			@Mock
@@ -86,7 +86,7 @@ class UserInfoServiceTest {
 	// ケースNo3
 	// ケース内容：プレイ対象でないかつ課金対象
 	// 引数：日時=現在日時
-	// Mock：isRegisterdAge()をfalse,isBillingAge()をtrueで返却
+	// Mock：isRegisteredAge()をfalse,isBillingAge()をtrueで返却
 	// 合格条件：ユーザー情報Mapに{playF=0,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象でない_課金対象() throws Exception {
@@ -96,7 +96,7 @@ class UserInfoServiceTest {
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
 			@Mock
-			public boolean isRegisterdAge(Date birthDay) {
+			public boolean isRegisteredAge(Date birthDay) {
 				return false;
 			}
 			@Mock
@@ -118,7 +118,7 @@ class UserInfoServiceTest {
 	// ケースNo4
 	// ケース内容：プレイ対象でないかつ課金対象でない
 	// 引数：日時=現在日時
-	// Mock：isRegisterdAge(),isBillingAge()をfalseで返却
+	// Mock：isRegisteredAge(),isBillingAge()をfalseで返却
 	// 合格条件：ユーザー情報Mapに{playF=0,billingF=0}が格納されていること
 	@Test
 	public void testCreateUserInfo_プレイ対象でない_課金対象でない() throws Exception {
@@ -128,7 +128,7 @@ class UserInfoServiceTest {
 		// 実行
 		MockUp<JudgeUtils> mock = new MockUp<JudgeUtils>() {
 			@Mock
-			public boolean isRegisterdAge(Date birthDay) {
+			public boolean isRegisteredAge(Date birthDay) {
 				return false;
 			}
 			@Mock
